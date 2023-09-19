@@ -1,13 +1,12 @@
-# VIRTUAL_ASSISTANT
-import speech_recognition as sr
-import pyttsx3
+    import speech_recognition as sr
+    import pyttsx3
 
-def listen():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Listening...")
-        recognizer.adjust_for_ambient_noise(source, duration=1)
-        audio = recognizer.listen(source)
+    def listen():
+        recognizer = sr.Recognizer()
+        with sr.Microphone() as source:
+            print("Listening...")
+            recognizer.adjust_for_ambient_noise(source, duration=1)
+            audio = recognizer.listen(source)
 
     try:
         print("Recognizing...")
@@ -21,13 +20,13 @@ def listen():
         print("Sorry, I'm having trouble with speech recognition.")
         return ""
 
-def speak(text):
-    engine = pyttsx3.init()
-    engine.say(text)
-    engine.runAndWait()
+    def speak(text):
+        engine = pyttsx3.init()
+        engine.say(text)
+        engine.runAndWait()
 
-def virtual_assistant():
-    speak("Hello! I'm your virtual assistant. How can I assist you today?")
+    def virtual_assistant():
+        speak("Hello! I'm your virtual assistant. How can I assist you today?")
     
     while True:
         user_input = listen()
@@ -42,5 +41,5 @@ def virtual_assistant():
         else:
             speak("I'm sorry, I didn't understand that.")
 
-if __name__ == "__main__":
-    virtual_assistant()
+    if __name__ == "__main__":
+        virtual_assistant()
